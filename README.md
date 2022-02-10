@@ -14,6 +14,7 @@ Remote Health Care App
 
 ## Documenting Database Schema
 
+```
 Table User Verification (Check which type of user you are)
 {
   "UserID": (string),
@@ -21,6 +22,7 @@ Table User Verification (Check which type of user you are)
   "Medical Professional": (boolean),
   "Patient": (boolean)
 }
+```
 
 User Insurance Lookup Table
 {
