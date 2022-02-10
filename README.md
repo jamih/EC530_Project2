@@ -24,6 +24,7 @@ Table User Verification (Check which type of user you are)
 }
 ```
 
+```
 User Insurance Lookup Table
 {
     "First Name": (string),
@@ -35,7 +36,9 @@ User Insurance Lookup Table
     },
     "Primary Care Physician": (string)
 }
+```
 
+```
 User Personal Info Table
 {
     "First name": (string),
@@ -47,6 +50,7 @@ User Personal Info Table
     "Medical History": (string),
     "Allergies": (string)
 }
+```
 
 
 
