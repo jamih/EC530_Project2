@@ -46,9 +46,12 @@ Table Device
 {
     "Device Name": (string),
     "Device ID": (string),
+    "Assignee": (string),
+    "Assignee ID": (string),
     "Type of Measurement": (string),
     "Unit of Measure": (string),
     "Value of Measurement": (double)
+    
     
 }
 ```
