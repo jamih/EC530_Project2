@@ -1,1 +1,1 @@
-'{"Device name":"Thermometer", "Device ID": 123878, "Type of Measurement": "temperature", "Unit of Measure": "Fahrenheit (degrees)", "Value of Measurement": 98.6}'
+{"Device name": "Thermometer", "Device ID": 123878, "Type of Measurement": "temperature", "Unit of Measure": "Fahrenheit (degrees)", "Value of Measurement": "98.6"}
