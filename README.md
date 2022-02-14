@@ -54,13 +54,13 @@ Table Device
 ```
 
 ### Measurement Devices Key
-| Device Name | What it Measures|
-| ------------| ----------------| 
-|Thermometer | temperature
-| Sphygmomanometer| blood pressure |
-|Oximeter | pulse |
-|Scale | weight | 
-| Glucometer | glucose content in blood |
+| Device Name | What it Measures| Unit of Measure | Example of Measurement |
+| ------------| ----------------| ------------------------------| --------------|
+|Thermometer | temperature | Fahrenheit (degrees) | 92.3 |
+| Sphygmomanometer| blood pressure | units of millimeters of mercury (mmHg)  | 132/88 mmHg
+|Oximeter | pulse | beats per minute | 70 beats per min |
+|Scale | weight | pounds (lb) | 130 lb |
+| Glucometer | glucose content in blood, blood sugar levels | milligrams of glucose per decileter of blood (mg/dL) | 100 mg/dL |
 
 
 ## Branching Strategy
