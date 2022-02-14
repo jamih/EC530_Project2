@@ -14,7 +14,7 @@ Table User Verification (Check which type of user you are)
 ```
 
 ```
-Patient Insurance Lookup Table
+Table Patient Insurance Lookup 
 {
     "First Name": (string),
     "Last Name": (string),
@@ -28,7 +28,7 @@ Patient Insurance Lookup Table
 ```
 
 ```
-Patient Personal Info Table
+Table Patient Personal Info 
 {
     "First name": (string),
     "Last name": (string),
