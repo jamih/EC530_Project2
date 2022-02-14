@@ -41,10 +41,14 @@ User Personal Info Table
 }
 ```
 
-## Branching
-
-Branches should be merged to the main when unit tests run successfully.
-
+## Branching Strategy
+For this project, I will be using the Github Flow branching strategy.
+There will be two types of branches:
+* **master** : the primary branch where code is branched off from and merged to. 
+* **sub-branches**: any chance (feature, bug) is made in a new branch that is derived from the master. The branch name will indicate what the feature or bug is.
+    * When the development of a certain feature or bug is done on that sub-branch, a pull request will be created so that code review can happen. When the code is reviewed and approved, there will be testing before merging on the master branch. The unit tests should run successfully.
+ 
+Source: https://www.bmc.com/blogs/devops-branching-strategies/
 
 
 
