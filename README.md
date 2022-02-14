@@ -52,7 +52,9 @@ User Personal Info Table
 }
 ```
 
+## Branching
 
+Branches should be merged to the main when unit tests run successfully.
 
 
 
