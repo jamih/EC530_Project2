@@ -11,7 +11,7 @@
         {
             "Device name": "Oximeter",
             "Device ID": "000002",
-            "Type of Measurement": "pulse]",
+            "Type of Measurement": "pulse",
             "Unit of Measure": "beats per minute",
             "Value of Measurement": "100"
         }
