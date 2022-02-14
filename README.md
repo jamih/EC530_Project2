@@ -32,12 +32,24 @@ Table Patient Personal Info
 {
     "First name": (string),
     "Last name": (string),
-    "Weight": (Double),
-    "Height": (Double),
-    "Gender": (String),
+    "Weight": (double),
+    "Height": (double),
+    "Gender": (string),
     "Address" (string),
     "Medical History": (string),
     "Allergies": (string)
+}
+```
+
+``` 
+Table Device 
+{
+    "Device Name": (string),
+    "Device ID": (string),
+    "Type of Measurement": (string),
+    "Unit of Measure": (string),
+    "Value of Measurement": (double)
+    
 }
 ```
 
