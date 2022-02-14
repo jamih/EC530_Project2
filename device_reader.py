@@ -9,7 +9,7 @@ data = json.load(f)
 
 # iterating through json list
 
-for i in data:
+for i in data['devices']:
     print(i)
 
 
