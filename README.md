@@ -1,15 +1,4 @@
-# EC530_Project2
-Remote Health Care App
-
-
-
-
-## Documenting Database Schema
-
-# EC530_Project2
-Remote Health Care App
-
-
+# EC530_Project2: Remote Health Care App
 
 
 ## Documenting Database Schema
