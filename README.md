@@ -53,6 +53,16 @@ Table Device
 }
 ```
 
+### Measurement Devices Key
+| Device Name | What it Measures|
+| ------------| ----------------| 
+|Thermometer | temperature
+| Sphygmomanometer| blood pressure |
+|Oximeter | pulse |
+|Scale | weight | 
+| Glucometer | glucose content in blood |
+
+
 ## Branching Strategy
 For this project, I will be using the Github Flow branching strategy.
 There will be two types of branches:
