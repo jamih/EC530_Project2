@@ -1,24 +1,8 @@
-{"devices": 
-    [
-        {
-            "Device name": "Thermometer",
-            "Device ID": "000001",
-            "Type of Measurement": "temperature",
-            "Unit of Measure": "Fahrenheit (degrees)",
-            "Value of Measurement": "98.6"
-        },
-
-        {
-            "Device name": "Oximeter",
-            "Device ID": "000003",
-            "Type of Measurement": "pulse",
-            "Unit of Measure": "beats per minute",
-            "Value of Measurement": "100"
-        }
-
-
-
-
-    ]
-
+{
+    "Device name": "Thermometer",
+    "Device ID": "000001",
+    "Type of Measurement": "temperature",
+    "Unit of Measure": "Fahrenheit (degrees)",
+    "Value of Measurement": "98.6"
 }
+
