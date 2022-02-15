@@ -1,8 +1,13 @@
 {
-    "Device name": "Thermometer",
     "Device ID": "000001",
-    "Type of Measurement": "temperature",
-    "Unit of Measure": "Fahrenheit (degrees)",
+    "Device Info": {
+        "Device name": "Thermometer",
+        "Type of Measurement": "temperature",
+        "Unit of Measure": "Fahrenheit (degrees)"
+    },
+    
+    "Assignee ID": "123456",
     "Value of Measurement": "98.6"
+    
 }
 
