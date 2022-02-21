@@ -61,7 +61,7 @@ Table Device
 | ------------| ----------------| ------------------------------| --------------|
 |Thermometer | temperature | Fahrenheit/Celsius/Kelvin (degrees) | 92.3 |
 | Sphygmomanometer| blood pressure | units of millimeters of mercury (mmHg)  | 132/88 mmHg
-| Pulse Oximeter | pulse, oxygen saturation | beats per minute (bpm), oxygen saturation (SpO2 | 70 bpm, 96% | 
+| Pulse Oximeter | pulse, oxygen saturation | beats per minute (bpm), oxygen saturation (SpO2) | 70 bpm, 96% | 
 |Scale | weight | pounds (lb) | 130 lb |
 | Glucometer | glucose content in blood, blood sugar levels | milligrams of glucose per decileter of blood (mg/dL) | 100 mg/dL |
 

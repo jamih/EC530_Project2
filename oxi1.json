@@ -1,0 +1,12 @@
+{
+    "Device_ID": 3,
+    "Device_Name": "Oximeter",
+    "Type_of_Measurement": "blood pressure",
+    "Measurement": {
+        "Unit": "mmHg",
+        "Value": 132
+    },
+    "Patient_ID": 1
+    
+}
+

@@ -45,15 +45,42 @@ def json_read():
     if not(isinstance(data.get("Device_ID"), int)):
         return False
 
-    # DEVICE NAME: 
+    # VALIDATION BY DEVICE NAME
         # if it's a Thermometer, check that the units are k, c, f and value is double
     if (data.get("Device_Name") == "Thermometer"):
-        print("it's a thermometer")
+        if (not(data["Measurement"]["Unit"]=="f") and (not(data["Measurement"]["Unit"]=="k")) and (not(data["Measurement"]["Unit"]=="c"))):
+            print("not a valid temp unit")
+        if not(isinstance(data["Measurement"]["Value"], float)):
+            print("THERM not a double")
+        
         # if it's Sphygmomanometer, check that the units are mmHg and value is int
+    if (data.get("Device_Name") == "Sphygmomanometer"):
+        if (not(data["Measurement"]["Unit"]=="mmHg")):
+            print("invalid spyg unit")
+
+        if not(isinstance(data["Measurement"]["Value"], int)):
+            print("SPYGH not an int")
         # if it's an Oximeter, check that the units are bpm and value is int 
+    if (data.get("Device_Name") == "Oximeter"):
+        if (not(data["Measurement"]["Unit"]=="bpm")):
+            print("invalid oxi unit")
+
+        if not(isinstance(data["Measurement"]["Value"], int)):
+            print("OXI not an int")
         # if it's a Scale, check that the units are lb or kg and value is double
+    if (data.get("Device_Name") == "Scale"):
+        if (not(data["Measurement"]["Unit"]=="lb") and (not(data["Measurement"]["Unit"]=="kg"))):
+            print("not a valid scale unit")
+
+        if not(isinstance(data["Measurement"]["Value"], float)):
+            print("SCALE not an int")
         # if it's a glucometer, check that units are mg/dL and value is int
-    
+    if (data.get("Device_Name") == "Glucometer"):
+        if (not(data["Measurement"]["Unit"]=="mg/dL")):
+            print("invalid glu unit")
+
+        if not(isinstance(data["Measurement"]["Value"], int)):
+            print("GLU not an int")
 
     # PATIENT ID: check that it's an integer
 
