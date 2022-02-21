@@ -4,7 +4,7 @@
     "Type_of_Measurement": "blood pressure",
     "Measurement": {
         "Unit": "mmHg",
-        "Value": 132
+        "Value": 70
     },
     "Patient_ID": 1
     

@@ -61,6 +61,7 @@ def json_read():
         if not(isinstance(data["Measurement"]["Value"], int)):
             print("SPYGH not an int")
         # if it's an Oximeter, check that the units are bpm and value is int 
+        # ADD THE OXYGEN LEVEL THING TO THE OXIMETER JSON FILE AND CHECK FOR IT
     if (data.get("Device_Name") == "Oximeter"):
         if (not(data["Measurement"]["Unit"]=="bpm")):
             print("invalid oxi unit")
