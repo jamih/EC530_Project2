@@ -112,6 +112,18 @@ def json_validate():
      # closing file
     f.close()
 
+# function to send data to a text file 
+def send_data():
+    result = json_validate()
+    valid_json  = result[0]
+    
+
+    if(valid_json):
+        data = (result[1])
+
+    with open('sample_data.txt', 'w') as sample_file:
+        sample_file.write(json.dumps(data))
+
 
 
     
@@ -123,6 +135,7 @@ def main():
     #print(json_read())
     json_read()
     #json_validate()
+    send_data()
 
 
 if __name__ == '__main__':
