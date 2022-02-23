@@ -46,12 +46,14 @@ def json_read():
         return False
 
     # VALIDATION BY DEVICE NAME
+    # NEED TO ADD THE VALID RANGES THAT EACH MEASUREMENT CAN BE
         # if it's a Thermometer, check that the units are k, c, f and value is double
     if (data.get("Device_Name") == "Thermometer"):
         if (not(data["Measurement"]["Unit"]=="f") and (not(data["Measurement"]["Unit"]=="k")) and (not(data["Measurement"]["Unit"]=="c"))):
             print("not a valid temp unit")
         if not(isinstance(data["Measurement"]["Value"], float)):
             print("THERM not a double")
+        # specify ranges for celsius, farenheit, kelvin
         
         # if it's Sphygmomanometer, check that the units are mmHg and value is int
     if (data.get("Device_Name") == "Sphygmomanometer"):
@@ -84,6 +86,9 @@ def json_read():
             print("GLU not an int")
 
     # PATIENT ID: check that it's an integer
+
+    if not(isinstance(data.get("Patient_ID"), int)):
+        return False
 
 
     # Sphygmomanometer, Oximeter, Scale, Glucometer have int values
