@@ -65,6 +65,16 @@ Table Device
 |Scale | weight | pounds (lb) | 130 lb |
 | Glucometer | glucose content in blood, blood sugar levels | milligrams of glucose per decileter of blood (mg/dL) | 100 mg/dL |
 
+### Error Codes Key
+| Error Code | Meaning |
+| -----------| ---------| 
+| 0 | NO ERRORS |
+| 1  | INVALID JSON FILE |
+| 2 | MISSING FIELDS IN JSON FILE | 
+| 3 | INVALID DATA TYPE IN JSON FILE|
+|4| MEASUREMENT OUT OF RANGE|
+|5| WRONG UNIT|
+
 
 ## Branching Strategy
 For this project, I will be using the Github Flow branching strategy.

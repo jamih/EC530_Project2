@@ -23,7 +23,7 @@ def json_read():
     if(valid_json):
         data = (result[1])
     else:
-        return False
+        return 1
     
     # check that fields are valid 
     valid_fields = ["Device_ID",  "Device_Name",
@@ -32,71 +32,84 @@ def json_read():
     json_fields = list(data.keys())
 
     if(json_fields!=valid_fields): 
-        return False
+        return 2
     
     # check within measurements field if the embedded fields are there 
     else:
         measurement_fields = list(data["Measurement"].keys())
         if(valid_measurement_fields!=measurement_fields):
-            return False
+            return 2
     
     # DEVICE ID : check that it's an integer
 
     if not(isinstance(data.get("Device_ID"), int)):
-        return False
+        return 3
 
     # CHECK THAT VALUES ARE POSITIVE
 
     # specify ranges for celsius, farenheit, kelvin
     if not(data["Measurement"]["Value"]>0):
-        print("VALUE IS UNDER 0")
+        return 4
+        #print("VALUE IS UNDER 0")
+
 
     # VALIDATION BY DEVICE NAME
     # NEED TO ADD THE VALID RANGES THAT EACH MEASUREMENT CAN BE
         # if it's a Thermometer, check that the units are k, c, f and value is double
     if (data.get("Device_Name") == "Thermometer"):
         if (not(data["Measurement"]["Unit"]=="f") and (not(data["Measurement"]["Unit"]=="k")) and (not(data["Measurement"]["Unit"]=="c"))):
-            print("not a valid temp unit")
+            #print("not a valid temp unit")
+            return 5
         if not(isinstance(data["Measurement"]["Value"], float)):
-            print("THERM not a double")
+            return 3
+            #print("THERM not a double")
         
         
         # if it's Sphygmomanometer, check that the units are mmHg and value is int
     if (data.get("Device_Name") == "Sphygmomanometer"):
         if (not(data["Measurement"]["Unit"]=="mmHg")):
-            print("invalid spyg unit")
+            return 5
+            #print("invalid spyg unit")
 
         if not(isinstance(data["Measurement"]["Value"], int)):
-            print("SPYGH not an int")
+            return 3
+            #print("SPYGH not an int")
         # if it's an Oximeter, check that the units are bpm and value is int 
         # ADD THE OXYGEN LEVEL THING TO THE OXIMETER JSON FILE AND CHECK FOR IT
     if (data.get("Device_Name") == "Oximeter"):
         if (not(data["Measurement"]["Unit"]=="bpm")):
-            print("invalid oxi unit")
+            return 5
+            #print("invalid oxi unit")
 
         if not(isinstance(data["Measurement"]["Value"], int)):
-            print("OXI not an int")
+            #print("OXI not an int")
+            return 3
         # if it's a Scale, check that the units are lb or kg and value is double
     if (data.get("Device_Name") == "Scale"):
         if (not(data["Measurement"]["Unit"]=="lb") and (not(data["Measurement"]["Unit"]=="kg"))):
-            print("not a valid scale unit")
+            return 5
+            #print("not a valid scale unit")
 
         if not(isinstance(data["Measurement"]["Value"], float)):
-            print("SCALE not an int")
+            return 3
+            #print("SCALE not an int")
         # if it's a glucometer, check that units are mg/dL and value is int
     if (data.get("Device_Name") == "Glucometer"):
         if (not(data["Measurement"]["Unit"]=="mg/dL")):
-            print("invalid glu unit")
+            return 5
+            #print("invalid glu unit")
 
         if not(isinstance(data["Measurement"]["Value"], int)):
-            print("GLU not an int")
+            return 3
+            #print("GLU not an int")
 
     # PATIENT ID: check that it's an integer
 
     if not(isinstance(data.get("Patient_ID"), int)):
-        return False
+        return 3
+        #return False
 
-
+    return 0
     # Sphygmomanometer, Oximeter, Scale, Glucometer have int values
     # check that thermometer has valid unit fields
     # check that Thermometer has double measurement
@@ -104,8 +117,8 @@ def json_read():
 
     
 # function that checks if file is in valid json format
-def json_validate():
-    f = open('therm2.json')
+def json_validate(file):
+    f = open(file)
     
     # throw ValueError if string or data passed can't be
     # decoded as json
