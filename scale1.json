@@ -3,7 +3,7 @@
     "Device_Name": "Scale",
     "Type_of_Measurement": "weight",
     "Measurement": {
-        "Unit": "lg",
+        "Unit": "lb",
         "Value": 130
     },
     "Patient_ID": 1

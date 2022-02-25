@@ -4,6 +4,7 @@ import device_reader
 def test_scale1():
     result = device_reader.json_read("scale1.json")
     assert result == 0
+    
 # extra comma in json file 
 def test_therm1():
     result = device_reader.json_read("therm1.json")
