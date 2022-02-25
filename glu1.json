@@ -1,5 +1,5 @@
 {
-    "Device_ID": 5,
+    "Device_ID": 0.5,
     "Device_Name": "Glucometer",
     "Type_of_Measurement": "glucose content",
     "Measurement": {

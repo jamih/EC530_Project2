@@ -1,7 +1,6 @@
 {
     "Device_ID": 2,
     "Device_Name": "Sphygmomanometer",
-    "Type_of_Measurement": "blood pressure",
     "Measurement": {
         "Unit": "mmHg",
         "Value": 132
