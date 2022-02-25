@@ -14,9 +14,9 @@ import json
 # check that it's a valid string with numbers or letters
 
 # function that checks the fields of the json file for validity
-def json_read():
+def json_read(file):
     
-    result = json_validate()
+    result = json_validate(file)
     valid_json  = result[0]
     
 
