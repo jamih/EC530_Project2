@@ -41,10 +41,7 @@ devices = [
     
 }
 
-
 ]
-
-print(devices[0])
 
 
 @application.route('/', methods=['GET'])
@@ -57,6 +54,18 @@ def home():
 @application.route('/devices/all', methods=['GET'])
 def api_all():
     return jsonify(devices)
+
+@application.route('/devices/post', methods=['POST'])
+def post_device():
+    content_type = request.headers.get('Content-Type')
+    # check if the file sent is in json format
+    if (content_type == 'application/json'):
+        json = request.get_json()
+        #json_device = json["device"]
+        #return json_device
+        return json
+    else:
+        return 'Content-Type not supported!'
 
 # run the app.
 if __name__ == "__main__":
