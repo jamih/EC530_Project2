@@ -1,0 +1,12 @@
+{
+    "Device_ID": 0.5,
+    "Device_Name": "Glucometer",
+    "Type_of_Measurement": "glucose content",
+    "Measurement": {
+        "Unit": "mg/dL",
+        "Value": 100
+    },
+    "Patient_ID": 1
+    
+}
+

@@ -1,0 +1,12 @@
+{
+    "Device_ID": 4,
+    "Device_Name": "Scale",
+    "Type_of_Measurement": "weight",
+    "Measurement": {
+        "Unit": "lb",
+        "Value": 130.2
+    },
+    "Patient_ID": 1
+    
+}
+

@@ -1,0 +1,11 @@
+{
+    "Device_ID": 2,
+    "Device_Name": "Sphygmomanometer",
+    "Measurement": {
+        "Unit": "mmHg",
+        "Value": 132
+    },
+    "Patient_ID": 1
+    
+}
+

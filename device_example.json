@@ -1,0 +1,13 @@
+{
+    "Device ID": "000001",
+    "Device Info": {
+        "Device name": "Thermometer",
+        "Type of Measurement": "temperature",
+        "Unit of Measure": "f"
+    },
+    
+    "Assignee ID": "123456",
+    "Value of Measurement": "98.6",
+    
+}
+

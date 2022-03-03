@@ -1,0 +1,12 @@
+{
+    "Device_ID": 1,
+    "Device_Name": "Thermometer",
+    "Type_of_Measurement": "temperature",
+    "Measurement": {
+        "Unit": "c",
+        "Value": -98.6
+    },
+    "Patient_ID": 1
+    
+}
+

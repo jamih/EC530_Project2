@@ -46,9 +46,12 @@ Table Device
 {
     "Device Name": (string),
     "Device ID": (string),
+    "Assignee": (string),
+    "Assignee ID": (string),
     "Type of Measurement": (string),
     "Unit of Measure": (string),
     "Value of Measurement": (double)
+    
     
 }
 ```
@@ -56,11 +59,21 @@ Table Device
 ### Measurement Devices Key
 | Device Name | What it Measures| Unit of Measure | Example of Measurement |
 | ------------| ----------------| ------------------------------| --------------|
-|Thermometer | temperature | Fahrenheit (degrees) | 92.3 |
+|Thermometer | temperature | Fahrenheit/Celsius/Kelvin (degrees) | 92.3 |
 | Sphygmomanometer| blood pressure | units of millimeters of mercury (mmHg)  | 132/88 mmHg
-|Oximeter | pulse | beats per minute | 70 beats per min |
+| Pulse Oximeter | pulse, oxygen saturation | beats per minute (bpm), oxygen saturation (SpO2) | 70 bpm, 96% | 
 |Scale | weight | pounds (lb) | 130 lb |
 | Glucometer | glucose content in blood, blood sugar levels | milligrams of glucose per decileter of blood (mg/dL) | 100 mg/dL |
+
+### Error Codes Key
+| Error Code | Meaning |
+| -----------| ---------| 
+| 0 | NO ERRORS |
+| 1  | INVALID JSON FILE |
+| 2 | MISSING FIELDS IN JSON FILE | 
+| 3 | INVALID DATA TYPE IN JSON FILE|
+|4| MEASUREMENT OUT OF RANGE|
+|5| WRONG UNIT|
 
 
 ## Branching Strategy
