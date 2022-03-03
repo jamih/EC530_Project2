@@ -31,7 +31,7 @@ devices = [
 
     {
     "Device_ID": 3,
-    "Device_Name": "Scale",
+    "Device_Name": "ANOTHER NEW DEVICE",
     "Type_of_Measurement": "weight",
     "Measurement": {
         "Unit": "lb",
