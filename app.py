@@ -47,7 +47,8 @@ devices = [
 @app.route('/', methods=['GET'])
 def home():
     return '''<h1>Devices API</h1>
-<p>/devices/all will return all devices</p>'''
+<p>/devices/all will return all devices
+HI BYRON!!!!!!!</p>'''
 
 
 # A route to return all of the available entries in our catalog.
