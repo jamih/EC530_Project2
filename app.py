@@ -8,7 +8,7 @@ app.config["DEBUG"] = True
 devices = [
     {
     "Device_ID": 1,
-    "Device_Name": "NEW DEVICE",
+    "Device_Name": "Oximeter",
     "Type_of_Measurement": "blood pressure",
     "Measurement": {
         "Unit": "lb",
@@ -31,7 +31,7 @@ devices = [
 
     {
     "Device_ID": 3,
-    "Device_Name": "ANOTHER NEW DEVICE",
+    "Device_Name": "Scale",
     "Type_of_Measurement": "weight",
     "Measurement": {
         "Unit": "lb",
