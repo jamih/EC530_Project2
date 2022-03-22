@@ -51,8 +51,10 @@ devices = [
 
 @app.route('/', methods=['GET'])
 def home():
+    
     return '''<h1>Devices API</h1>
-
+# <p>/devices/all will return all devices
+# HI BYRON!!!!!!!</p>'''
 
 
 @app.route('/get_devices', methods=['GET'])
