@@ -6,9 +6,9 @@ import device_reader
 
 
 app = flask.Flask(__name__)
-# app.config["MONGO_URI"] = "mongodb+srv://jamih:test@cluster0.wluiq.mongodb.net/health-care-app?retryWrites=true&w=majority"
+app.config["MONGO_URI"] = "mongodb+srv://jamih:test@cluster0.wluiq.mongodb.net/health-care-app?retryWrites=true&w=majority"
 
-# mongo = PyMongo(app)
+mongo = PyMongo(app)
 
 devices = [
     {
@@ -56,11 +56,11 @@ def home():
 
 
 
-# @app.route('/get_devices', methods=['GET'])
-# def get_devices():
-#     measurements = mongo.db.devices.find()
-#     response = json_util.dumps(measurements)
-#     return Response(response, mimetype='application/json')
+@app.route('/get_devices', methods=['GET'])
+def get_devices():
+    measurements = mongo.db.devices.find()
+    response = json_util.dumps(measurements)
+    return Response(response, mimetype='application/json')
 #     return '''<h1>Devices API</h1>
 # <p>/devices/all will return all devices
 # HI BYRON!!!!!!!</p>'''
