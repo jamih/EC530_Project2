@@ -7,6 +7,7 @@ import json
 # a valid json file
 # then save the json file to a dict
 
+# ENCODE JSON FILE TO LINK, DECODE TO LINK
 
 # check if it's a string
 # check for negative measurements
