@@ -65,6 +65,30 @@ def get_devices():
 # <p>/devices/all will return all devices
 # HI BYRON!!!!!!!</p>'''
 
+@app.route('/devices', methods=['POST'])
+def create_device():
+
+    print("One")
+    # Receiving data
+    data = request.get_json()
+
+    mongo.db.devices.insert_one(data)
+
+    print("Two")
+
+    print(data)
+    device_ID = data['Device_ID']
+    device_name = data['Device_Name']
+    type_of_measurement = data['Type_of_Measurement']
+    m_unit = data['Measurement']['Unit']
+    m_value = data['Measurement']['Value']
+    patient_id = data['Patient_ID']
+
+    json_data = jsonify({'Device_ID': device_ID,'Device_Name': device_name, 'Type_of_Measurement': type_of_measurement,
+    'Measurement': {'Unit': m_unit, 'Value': m_value},
+    'Patient_ID': patient_id })
+
+    return json_data
 
 # A route to return all of the available entries in our catalog.
 @app.route('/devices/all', methods=['GET'])
