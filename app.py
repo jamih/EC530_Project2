@@ -49,7 +49,7 @@ devices = [
 ]
 
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def home():
     
     return '''<h1>Devices API</h1>'''
