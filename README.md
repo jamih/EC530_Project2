@@ -1,5 +1,8 @@
 # EC530_Project2: Remote Health Care App
 
+## Table of Contents
+[Database Schemas](#Documenting Database Schema)
+
 
 ## Documenting Database Schema
 
