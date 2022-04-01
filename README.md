@@ -1,10 +1,18 @@
 # EC530_Project2: Remote Health Care App
 
 ## Table of Contents
+- [About the Project](#description)
 - [Development](#phases)
 - [Database Schemas](#documentation)
 - [Measurement Devices Key](#key)
 - [Branching Strategy](#branching)
+
+
+
+### Description
+### About the Project
+
+This project is a web application that allows admins, doctors, patients to interact and keep track of device measurements.
 
 
 ### Phases
