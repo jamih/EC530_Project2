@@ -7,9 +7,6 @@
 - [Branching Strategy](#branching)
 
 
-
-...
-
 #### Phases
 
 Phase 0:   (Due 2/13)
@@ -50,9 +47,6 @@ Phase 4:   (Due 4/19)
 - [ ] Display Healthkit or Google Fit Data in your app
 - [ ] Use your device API to send health data to your backend
 - [ ] Nurse or Doctor should be able to see health data of any patient
-
-...
-
 
 
 ## Documentation
