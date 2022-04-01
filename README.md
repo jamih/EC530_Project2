@@ -1,7 +1,7 @@
 # EC530_Project2: Remote Health Care App
 
 ## Table of Contents
-- [Database Schemas](#documenting)
+- [Database Schemas](#documenting_database_schema)
 - [Measurement Devices Key](#measurement Devices Key)
 - [Branching Strategy](#branching Strategy)
 
