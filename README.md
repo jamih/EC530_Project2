@@ -7,7 +7,7 @@
 - [Branching Strategy](#branching)
 
 
-#### Phases
+### Phases
 
 Phase 0:   (Due 2/13)
 - [x] Setup your Agile environment for the project (including project, GitHub, testing, etc.).
