@@ -16,25 +16,39 @@ def home():
     return '''<h1>Devices API</h1>'''
 
 
-@app.route('/get_devices', methods=['GET'])
-def get_devices():
+@app.route('/devices', methods=['GET'])
+def all_devices():
     measurements = mongo.db.devices.find()
     response = json_util.dumps(measurements)
     return Response(response, mimetype='application/json')
 
+@app.route('/device/<device_ID>', methods=['GET'])
+def get_device(device_ID):
+    device = mongo.db.devices.find_one({"Device_ID": device_ID})
+    #measurements = mongo.db.devices.find()
+    response = json_util.dumps(device)
+    #return device
+    return Response(response, mimetype='application/json')
 
-@app.route('/devices', methods=['POST'])
+
+@app.route('/device', methods=['POST'])
 def create_device():
 
-    print("One")
     # Receiving data
     data = request.get_json()
 
-    mongo.db.devices.insert_one(data)
+    error_code = device_reader.json_validate(data)
+    print('ERROR CODE', error_code)
+    #print('hello')
+    if(error_code=='0'):
+        mongo.db.devices.insert_one(data)
+    
+    else:
+        return Response('INVALID JSON FILE!', status=400, mimetype='application/json')
 
-    print("Two")
 
-    print(data)
+    #return Response(str(error_code), status=404, mimetype='application/json')
+    
     device_ID = data['Device_ID']
     device_name = data['Device_Name']
     type_of_measurement = data['Type_of_Measurement']
@@ -42,17 +56,19 @@ def create_device():
     m_value = data['Measurement']['Value']
     patient_id = data['Patient_ID']
 
-    if device_ID and device_name and type_of_measurement and m_unit and m_value and patient_id:
-        print('found')
-    else:
-        return not_found()
-
+    
+    # if device_ID and device_name and type_of_measurement and m_unit and m_value and patient_id:
+    #     print('found')
+    # else:
+    #     return not_found()
+    
+    
     json_data = jsonify({'Device_ID': device_ID,'Device_Name': device_name, 'Type_of_Measurement': type_of_measurement,
     'Measurement': {'Unit': m_unit, 'Value': m_value},
     'Patient_ID': patient_id })
 
     return json_data
-
+    
 @app.errorhandler(404)
 def not_found(error=None):
     message = {

@@ -17,7 +17,7 @@ import json
 # function that checks the fields of the json file for validity
 def json_read(file):
     
-    result = json_validate(file)
+    result = check_format(file)
     valid_json  = result[0]
     
 
@@ -25,6 +25,8 @@ def json_read(file):
         data = (result[1])
     else:
         return 1
+
+def json_validate(data):
     
     # check that fields are valid 
     valid_fields = ["Device_ID",  "Device_Name",
@@ -118,7 +120,7 @@ def json_read(file):
 
     
 # function that checks if file is in valid json format
-def json_validate(file):
+def check_format(file):
     f = open(file)
     
     # throw ValueError if string or data passed can't be
@@ -139,7 +141,7 @@ def json_validate(file):
 
 # function to send data to a text file 
 def send_data():
-    result = json_validate()
+    result = check_format()
     valid_json  = result[0]
     
 
@@ -148,12 +150,6 @@ def send_data():
 
     with open('sample_data.txt', 'w') as sample_file:
         sample_file.write(json.dumps(data))
-
-
-
-    
-
-
 
 
 def main():
