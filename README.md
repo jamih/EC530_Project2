@@ -1,13 +1,15 @@
 # EC530_Project2: Remote Health Care App
 
 ## Table of Contents
-- [Database Schemas](#documenting database schema)
-- [Measurement Devices Key](#measurement Devices Key)
-- [Branching Strategy](#branching Strategy)
+- [Database Schemas](#documentation)
+- [Measurement Devices Key](#key)
+- [Branching Strategy](#branching)
 
 
 
-## Documenting Database Schema
+## Documentation
+
+### Documenting Database Schema
 
 ```
 Table User Verification (Check which type of user you are)
@@ -62,6 +64,7 @@ Table Device
 }
 ```
 
+###Key
 ### Measurement Devices Key
 | Device Name | What it Measures| Unit of Measure | Example of Measurement |
 | ------------| ----------------| ------------------------------| --------------|
@@ -82,6 +85,7 @@ Table Device
 |5| WRONG UNIT|
 
 
+## Branching
 ## Branching Strategy
 For this project, I will be using the Github Flow branching strategy.
 There will be two types of branches:
