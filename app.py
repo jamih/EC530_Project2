@@ -16,22 +16,28 @@ def home():
     return '''<h1>Devices API</h1>'''
 
 
+# returns all the devices in the database
 @app.route('/devices', methods=['GET'])
 def all_devices():
     measurements = mongo.db.devices.find()
     response = json_util.dumps(measurements)
     return Response(response, mimetype='application/json')
 
+# returns a specific device, specified by the device ID
 @app.route('/device/<device_ID>', methods=['GET'])
 def get_device(device_ID):
-    device = mongo.db.devices.find_one({"Device_ID": device_ID})
+    device = mongo.db.devices.find_one({"Device_ID": int(device_ID)})
     #measurements = mongo.db.devices.find()
+    #if device == null:
+    #    return not_found()
+    print(device)
+    #else:
     response = json_util.dumps(device)
     #return device
     return Response(response, mimetype='application/json')
 
-
-@app.route('/device', methods=['POST'])
+# posts a device if it's in the right format and validation is successful
+@app.route('/device', methods=['POST']) 
 def create_device():
 
     # Receiving data
@@ -40,7 +46,7 @@ def create_device():
     error_code = device_reader.json_validate(data)
     print('ERROR CODE', error_code)
     #print('hello')
-    if(error_code=='0'):
+    if(error_code==0):
         mongo.db.devices.insert_one(data)
     
     else:
@@ -68,6 +74,23 @@ def create_device():
     'Patient_ID': patient_id })
 
     return json_data
+
+@app.route('/device/<device_ID>', methods=['DELETE']) 
+def delete_device(device_ID):
+    delete_device = mongo.db.devices.delete_one({"Device_ID": int(device_ID)})
+
+    if delete_device.deleted_count > 0:
+        return "Device " + device_ID + " was deleted"
+    else:
+        return "", 404
+
+@app.route('/devices', methods=['DELETE']) 
+def delete_all():
+
+    x = mongo.db.devices.delete_many({})
+
+    return "all documents were deleted"
+
     
 @app.errorhandler(404)
 def not_found(error=None):
