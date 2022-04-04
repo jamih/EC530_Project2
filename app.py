@@ -4,6 +4,7 @@ from flask import request, jsonify, Response
 from flask_pymongo import PyMongo
 from bson import json_util
 import device_reader
+from flask import render_template
 
 
 app = flask.Flask(__name__)
@@ -11,9 +12,10 @@ app.config["MONGO_URI"] = "mongodb+srv://jamih:test@cluster0.wluiq.mongodb.net/h
 
 mongo = PyMongo(app)
 
+
 @app.route('/')
 def home():
-    return '''<h1>Devices API</h1>'''
+    return render_template('homepage.html')
 
 
 # returns all the devices in the database
