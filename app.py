@@ -1,15 +1,18 @@
+from tracemalloc import start
 from urllib import response
-from flask import Flask
+from flask import Flask, session
 from flask import request, jsonify, Response
 from flask_pymongo import PyMongo
 from bson import json_util
 import device_reader
 from flask import render_template
+from passlib.hash import pbkdf2_sha256
+import uuid 
 
 
 
 app = Flask(__name__)
-from user import  routes
+app.secret_key = b'Cg\x8f\xd4\x84z\x9d\xfa \xcdN\xbfB\xa9\x13\x82'
 app.config["MONGO_URI"] = "mongodb+srv://jamih:test@cluster0.wluiq.mongodb.net/health-care-app?retryWrites=true&w=majority"
 
 mongo = PyMongo(app)
@@ -18,7 +21,11 @@ mongo = PyMongo(app)
 def home():
     return render_template('homepage.html')
 
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
 
+############## DEVICE ROUTES ################
 # returns all the devices in the database
 @app.route('/devices', methods=['GET'])
 def all_devices():
@@ -94,13 +101,43 @@ def delete_all():
 
     return "all documents were deleted"
 
+
+########## USER ROUTES ###################
+@app.route('/user/signup', methods=['POST'])
+def signup():
+     # Create the user object
+    user = {
+        "_id": uuid.uuid4().hex,
+        "name": request.form.get('name'),
+        "email": request.form.get('email'),
+        "password": request.form.get('password'),
+    }
+
+    # Encrypt the password
+    user['password'] = pbkdf2_sha256.encrypt(user['password'])
     
+
+    # Check if the email address is already in use 
+    if mongo.db.users.find_one({ "email": user['email']}):
+        return jsonify({"error": "Email address already in use"}), 400
+    
+    # if it successfully inserts the user into the database, return success status code
+    if mongo.db.users.insert_one(user):
+        return start_session(user)
+
+
+    return jsonify({ "error": "Signup failed"}), 400
 # @app.errorhandler(404)
 # def not_found(error=None):
 #     message = {
 #         'message': 'Resource Not Found' + request.url,
 #         'status': 404
 #     }
+
+def start_session(user):
+    session['logged_in'] = True
+    session['user'] = user
+    return jsonify(user),200
 
 
     
