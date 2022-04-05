@@ -1,5 +1,5 @@
 from urllib import response
-import flask
+from flask import Flask
 from flask import request, jsonify, Response
 from flask_pymongo import PyMongo
 from bson import json_util
@@ -7,11 +7,12 @@ import device_reader
 from flask import render_template
 
 
-app = flask.Flask(__name__)
+
+app = Flask(__name__)
+from user import  routes
 app.config["MONGO_URI"] = "mongodb+srv://jamih:test@cluster0.wluiq.mongodb.net/health-care-app?retryWrites=true&w=majority"
 
 mongo = PyMongo(app)
-
 
 @app.route('/')
 def home():
@@ -94,12 +95,12 @@ def delete_all():
     return "all documents were deleted"
 
     
-@app.errorhandler(404)
-def not_found(error=None):
-    message = {
-        'message': 'Resource Not Found' + request.url,
-        'status': 404
-    }
+# @app.errorhandler(404)
+# def not_found(error=None):
+#     message = {
+#         'message': 'Resource Not Found' + request.url,
+#         'status': 404
+#     }
 
 
     
@@ -110,3 +111,4 @@ if __name__ == "__main__":
     # removed before deploying a production app.
     app.debug = True
     app.run()
+
