@@ -1,7 +1,8 @@
 from tracemalloc import start
 from urllib import response
 from flask import Flask, session
-from flask import request, jsonify, Response
+from functools import wraps
+from flask import request, jsonify, Response, redirect
 from flask_pymongo import PyMongo
 from bson import json_util
 import device_reader
@@ -17,11 +18,26 @@ app.config["MONGO_URI"] = "mongodb+srv://jamih:test@cluster0.wluiq.mongodb.net/h
 
 mongo = PyMongo(app)
 
+# Decorators
+# decides if a route can be accessed
+# checks to make sure that the user is logged in
+def login_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session:
+            return f(*args, **kwargs)
+        
+        else:
+            return redirect('/')
+    return wrap
+
+
 @app.route('/')
 def home():
     return render_template('homepage.html')
 
 @app.route('/dashboard')
+@login_required 
 def dashboard():
     return render_template('dashboard.html')
 
@@ -127,17 +143,32 @@ def signup():
 
 
     return jsonify({ "error": "Signup failed"}), 400
-# @app.errorhandler(404)
-# def not_found(error=None):
-#     message = {
-#         'message': 'Resource Not Found' + request.url,
-#         'status': 404
-#     }
+
+@app.route('/user/signout')
+def user_signout():
+    session.clear()
+    return redirect('/')
 
 def start_session(user):
+    del user['password']
     session['logged_in'] = True
     session['user'] = user
     return jsonify(user),200
+
+@app.route('/user/login', methods=['POST'])
+def login():
+    user = mongo.db.users.find_one({
+        "email": request.form.get('email')
+    })
+
+    if user and pbkdf2_sha256.verify(request.form.get('password'), user['password']):
+        return start_session(user)
+    
+    return jsonify({"error": "Invalid login credentials"}), 401
+
+
+
+
 
 
     
